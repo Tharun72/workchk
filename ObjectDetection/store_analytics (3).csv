@@ -1,0 +1,12 @@
+Customer_ID,Zone_Interaction,Status,Product_Taken,Dwell_Time_Sec
+1,SHELF_B,TAKEN,handbag,7.96
+2,SHELF_A,TAKEN,bottle,7.96
+3,SHELF_B,TAKEN,suitcase,3.58
+4,SHELF_A,TAKEN,bottle,3.12
+6,SHELF_A,TAKEN,bottle,6.46
+10,FLOOR,WALKING,None,5.83
+11,SHELF_B,TAKEN,suitcase,0.5
+14,SHELF_A,BROWSING,None,0.38
+24,SHELF_A,TAKEN,cell phone,1.12
+25,SHELF_A,TAKEN,suitcase,0.38
+29,SHELF_A,WALKING,None,0.96
