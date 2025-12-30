@@ -1,0 +1,2 @@
+Customer_ID,Total_Dwell_Time,Final_Status,Conversion_Type,Products_Interacted,Store_Journey_Path
+1,7.96,PICKED,Converted (Picked),"bottle, cup",SHELF_A -> FLOOR

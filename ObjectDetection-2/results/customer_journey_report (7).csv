@@ -1,0 +1,13 @@
+Customer_ID,Total_Dwell_Time,Final_Status,Conversion_Type,Products_Interacted,Store_Journey_Path
+1,7.96,PICKED,Converted (Picked),"handbag, backpack, suitcase, umbrella",SHELF_B
+2,7.96,PICKED,Converted (Picked),"bottle, handbag, suitcase",SHELF_A
+3,1.54,PICKED,Converted (Picked),bottle,SHELF_A -> FLOOR
+4,3.54,PICKED,Converted (Picked),"cup, bottle, backpack, handbag",SHELF_A -> FLOOR
+5,0.04,BROWSING,Browsed Only,None,SHELF_A -> SHELF_B
+6,2.0,BROWSING,Browsed Only,None,SHELF_A
+8,6.25,WALKING,Browsed Only,None,SHELF_B -> FLOOR
+13,0.46,PICKED,Converted (Picked),umbrella,SHELF_B -> FLOOR -> SHELF_A
+16,2.0,PICKED,Converted (Picked),"backpack, bottle",SHELF_A -> SHELF_B -> FLOOR
+20,0.67,WALKING,Browsed Only,None,SHELF_A -> SHELF_B -> FLOOR
+22,4.62,WALKING,Browsed Only,None,Floor Only
+25,1.04,PICKED,Converted (Picked),bottle,SHELF_A -> FLOOR
