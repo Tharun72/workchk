@@ -1,0 +1,2 @@
+CustomerID,EntryTime,ExitTime,TotalTime,FinalStatus,ZonesVisited,Products
+1,0.042,8.0,7.958,PICKED,SHELF_A - FLOOR - SHELF_B,"bottle, cup, banana, suitcase, sports ball"

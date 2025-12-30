@@ -1,0 +1,5 @@
+CustomerID,Zone,EnterTime,ExitTime,DwellTime
+1,SHELF_A,1.292,6.25,4.958
+1,FLOOR,6.25,7.542,1.292
+1,SHELF_B,7.542,7.792,0.25
+1,FLOOR,7.792,8.0,0.208

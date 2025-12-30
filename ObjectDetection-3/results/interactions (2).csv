@@ -1,0 +1,2 @@
+CustomerID,Zone,StartTime,EndTime,HoldTime,Outcome,DetectedItem
+1,SHELF_A,1.5,7.792,6.292,BOUGHT,bottle

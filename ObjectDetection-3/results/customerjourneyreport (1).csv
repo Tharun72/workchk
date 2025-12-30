@@ -1,0 +1,2 @@
+CustomerID,TotalDwellTime,FinalStatus,ConversionType,ProductsInteracted,StoreJourneyPath
+1,7.96,PICKED,Converted Picked,"bottle, cup, banana, suitcase, sports ball",SHELF_A - FLOOR - SHELF_B
