@@ -1,0 +1,216 @@
+Core Behavioral Factors (Per Customer-Item Interaction)
+These are extracted directly from CV tracking events. Each interaction is logged with:
+
+1. Dwell Time (Duration in Zone)
+
+Time spent looking at a specific item or zone (in seconds).
+
+Baseline score: 0-10 seconds = 1pt, 10-30s = 3pts, 30-60s = 5pts, 60s+ = 10pts.
+
+Higher dwell = stronger interest signal.
+​
+
+2. Pickup & Return Behavior
+
+Item picked up (inspected closely): +5pts.
+
+Item returned to shelf (reconsidered): -2pts.
+
+Item left in hand (walk away from zone): -3pts.
+
+Multiple pickups of same item: +7pts (high intent).
+
+3. Zone Visit Frequency
+
+How many unique customers visit a zone per hour.
+
+Score factor: Zone_visits_per_hour / max_visits → normalized 0-10 scale.
+
+Decathlon gym zone: 20 visits/hr = high traffic score.
+
+4. Purchase Completion
+
+Customer enters zone → picks up item → moves to checkout: +10pts (conversion).
+
+Customer enters zone → browses → leaves without purchase: 0pts (interest only).
+
+Conversion rate per zone: (purchases / visits) × 10.
+
+6. Peak Hour Engagement
+
+7. Customer Repeat Visits (Loyalty Proxy)
+
+Same customer visits same zone/item multiple times.
+
+Repeat score: 1st visit = 1x, 2nd = 1.2x, 3rd+ = 1.5x multiplier on engagement.
+
+Indicates product loyalty or comparison-shopping behavior.
+
+8. Visit Duration Trend (Engagement Momentum)
+
+Track if dwell time increases/decreases over successive visits.
+
+Increasing dwell = rising interest: +2pts per visit increase.
+
+Decreasing dwell = fading interest: -1pt per visit decrease.
+
+9. Queue/Congestion Effect
+
+If zone is crowded (>5 customers simultaneously), dwell time artificially inflates.
+
+Adjustment: Dwell time in crowded zones discounted by 20-30%.
+
+Or flag as "high demand despite congestion" = strong signal.
+
+Seasonal & Event-Based Factors
+Account for festivals, holidays, and sports seasons when certain gear spikes.
+
+
+Engagement & Conversion Factors
+14. Engagement Score (Per Customer-Zone)
+
+Composite of dwell, pickups, repeat visits, event proximity.
+
+Formula:
+
+text
+Engagement_Score = (Dwell_pts × 0.3) + (Pickup_pts × 0.3) + 
+                   (Repeat_Multiplier × 0.2) + (Event_Boost × 0.2)
+Range: 0-100.
+
+15. Conversion Probability (Predictive)
+
+Use historical data: if dwell > 45s + pickup + zone visit before = 70% conversion likelihood.
+
+Scoring rule:
+
+High dwell + pickup + return visit pattern = +8pts toward purchase score.
+
+Single visit, no pickup = +1pt (low conversion likelihood).
+
+Zone-Level Aggregated Factors
+17. Zone Popularity Score
+
+Sum of all customer engagement scores in zone over a time window.
+
+Formula: Zone_Score = Σ(Customer_Engagement) / hour → normalized 0-100.
+
+Decathlon gym zone: 450 engagement points/hour = 90/100 popularity.
+
+18. Zone Conversion Efficiency
+
+(Total purchases in zone / total visits to zone) × 100.
+
+High traffic + low conversion = redesign issue.
+
+Low traffic + high conversion = niche/premium segment (e.g., pro cycling gear).
+
+19. Cross-Zone Migration (Customer Flow)
+
+Track if customer visits Zone A (running) then Zone B (gym).
+
+Affinity score: If 60% of gym customers also visit running = cross-zone boost +3pts.
+
+Indicates complementary categories; placement optimization.
+
+
+
+23. Dwell-to-Purchase Conversion Funnel
+
+Track: View → Dwell → Pickup → Purchase.
+
+Dropout rate at each stage.
+
+Predictive score: If 30% drop between "pickup" and "purchase," flag zone for checkout friction.
+
+24. Customer Segment Engagement Variance
+
+Segment customers by visit frequency (casual, repeat, frequent).
+
+High engagement from frequent visitors = stable demand.
+
+High engagement from casual visitors = viral/trending product.
+
+Score adjustment: Frequent visitor engagement weighted 0.6x, casual visitor 1.2x (trending signal).
+
+25. Anomaly/Outlier Detection
+
+Sudden spike in dwell time or pickups (unusual for item/zone).
+
+Flag rule: Engagement > (mean + 2 std dev) = anomaly.
+
+Could indicate viral moment, influencer visit, or setup issue.
+
+Apply dampening to avoid false inventory spikes.
+
+Item-Level Scoring Summary
+Final Item Score =
+
+text
+(Base_Engagement × 0.25) + 
+(Conversion_Probability × 0.25) + 
+(Trend_Velocity × 0.15) + 
+(Seasonal_Multiplier × 0.15) + 
+(Affinity_Strength × 0.10) + 
+(Event_Boost × 0.10)
+Range: 0-100 points.
+
+Interpretation:
+
+80-100: "Buy More Now" – trending, high demand.
+
+50-79: "Stable Performer" – consistent interest.
+
+20-49: "Declining Interest" – post-event decay or off-season.
+
+0-19: "Low Priority" – overstock, niche appeal, or wrong placement.
+
+Zone-Level Scoring Summary
+Final Zone Score =
+
+text
+(Zone_Popularity × 0.30) + 
+(Conversion_Efficiency × 0.25) + 
+(Cross_Zone_Affinity × 0.20) + 
+(Inventory_Health × 0.15) + 
+(Trend_Velocity × 0.10)
+Range: 0-100 points.
+
+Interpretation:
+
+80-100: "Premium Zone" – high traffic, high conversion, optimize layout.
+
+50-79: "Standard Zone" – healthy, monitor for seasonal shifts.
+
+20-49: "Underperforming" – review layout, product mix, staffing.
+
+0-19: "Critical Zone" – poor inventory fit or placement error.
+
+Actionable Insights Generated
+For Inventory & Restocking:
+
+"Running shoes score 92/100 + velocity +18% → Restock immediately (pre-marathon spike)."
+
+"Gym benches score 45/100 + negative velocity -12% → Post-event decay; reduce reorder by 20%."
+
+For Layout Optimization:
+
+"Running shoes (92) + sports socks (88) affinity 2.8 → Place socks 2 meters from shoes to boost basket size."
+
+"Zone A popularity 75 but conversion 40% → Review shelf height, signage, or checkout flow."
+
+For Marketing & Promotion:
+
+"Cycling helmets engagement +22% but conversion 30% → High interest, low purchase. Run 'helmet deals' campaign."
+
+"Decathlon pro equipment zone trending -8% post-event → Shift focus to beginner tier or cross-promote with gym gear."
+
+For Staffing:
+
+"Zone B peak hour engagement 95/100 → Increase staff during 12-2pm window to handle demand."
+
+For Next-Week Forecasting:
+
+"Running category velocity +15% + event in 3 days + seasonal multiplier +20% = predicted 35% sales lift next week."
+
+This system captures behavioral depth, temporal dynamics, and predictive signals for data-driven Decathlon sales strategy.

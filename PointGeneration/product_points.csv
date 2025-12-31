@@ -1,0 +1,2 @@
+product,unique_customers,interactions_count,intent_count,returned_count,hold_time_sum,hold_time_avg,points_sum,intent_efficiency_pct,engagement_0_100,final_item_score_partial_0_100,item_label
+bottle,1,1,1,0,6.292,6.292,2,100.0,100.0,100.0,Buy More Now
